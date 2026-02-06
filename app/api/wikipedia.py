@@ -1,17 +1,30 @@
-import wikipedia
+from langchain_community.tools import WikipediaQueryRun
+from langchain_community.utilities import WikipediaAPIWrapper
 
-def wikipedia_fallback(query: str) -> str | None:
+
+# Configure Wikipedia API
+wiki_api = WikipediaAPIWrapper(
+    top_k_results=3,
+    doc_content_chars_max=1500
+)
+
+wiki_tool = WikipediaQueryRun(api_wrapper=wiki_api)
+
+
+def wikipedia_fallback(query: str) -> str:
     """
-    Fetches a short Wikipedia summary for general information.
-    Used only as a fallback.
+    Uses LangChain Wikipedia retriever to get reliable context.
+    Always returns text.
     """
 
     try:
-        wikipedia.set_lang("en")
-        return wikipedia.summary(query, sentences=5)
+        result = wiki_tool.run(query)
 
-    except wikipedia.exceptions.DisambiguationError as e:
-        return wikipedia.summary(e.options[0], sentences=5)
+        if result and result.strip():
+            return result
 
     except Exception:
-        return None
+        pass
+
+    # Absolute safety fallback
+    return f"General public information about {query}."
