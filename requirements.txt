@@ -1,20 +1,48 @@
-wikipedia
-# Environment Variable Management
+# ================================
+# Core Backend
+# ================================
+fastapi
+uvicorn
+
+# ================================
+# Environment Variables
+# ================================
 python-dotenv
 
-# Machine Learning Utilities
-numpy
-scikit-learn
+# ================================
+# OpenAI (LLM + Embeddings + Whisper + TTS)
+# ================================
+openai
 
-# LangChain Core
+# ================================
+# Vector Database (Pinecone)
+# ================================
+pinecone-client
+
+# ================================
+# LangChain (Light Usage)
+# ================================
 langchain
 langchain-core
 
-# OpenAI Integration
-langchain-openai
-openai
+# ================================
+# Document Processing
+# ================================
+pypdf
 
-# Google Gemini (PaLM) Integration
-langchain-google-genai
-google-generativeai
+# ================================
+# Wikipedia Fallback
+# ================================
+wikipedia
 
+# ================================
+# Language & Voice (Optional but planned)
+# ================================
+whisper
+gtts
+
+# ================================
+# Utilities
+# ================================
+requests
+numpy

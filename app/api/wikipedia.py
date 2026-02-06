@@ -1,11 +1,17 @@
 import wikipedia
 
-def search_wikipedia(query: str, sentences: int = 5):
+def wikipedia_fallback(query: str) -> str | None:
+    """
+    Fetches a short Wikipedia summary for general information.
+    Used only as a fallback.
+    """
+
     try:
         wikipedia.set_lang("en")
-        summary = wikipedia.summary(query, sentences=sentences)
-        return summary
+        return wikipedia.summary(query, sentences=5)
+
     except wikipedia.exceptions.DisambiguationError as e:
-        return wikipedia.summary(e.options[0], sentences=sentences)
+        return wikipedia.summary(e.options[0], sentences=5)
+
     except Exception:
         return None

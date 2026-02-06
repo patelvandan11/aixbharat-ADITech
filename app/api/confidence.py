@@ -1,35 +1,34 @@
 from pydantic import BaseModel, Field
 from openai import OpenAI
-from app.ai.confidence import ConfidenceScore
-from dotenv import load_dotenv
-
-class ConfidenceScore(BaseModel):
-    score: float = Field(..., ge=0.0, le=1.0)
-    reason: str
+from core.prompts import CONFIDENCE_PROMPT
 
 client = OpenAI()
 
-def evaluate_confidence(query: str, context: str) -> ConfidenceScore:
-    prompt = f"""
-You are an evaluator.
+# ---- Output schema ----
+class ConfidenceResult(BaseModel):
+    score: float = Field(..., ge=0.0, le=1.0)
+    reason: str
 
-Given a user question and retrieved information, rate how well the information answers the question.
 
-Return a JSON object with:
-- score: float between 0 and 1
-- reason: short explanation
+# ---- Main function ----
+def evaluate_confidence(
+    question: str,
+    retrieved_context: str
+) -> ConfidenceResult:
+    """
+    Evaluates how well the retrieved context answers the question.
+    Returns a confidence score between 0 and 1.
+    """
 
-Question:
-{query}
-
-Retrieved Information:
-{context}
-"""
+    prompt = CONFIDENCE_PROMPT.format(
+        question=question,
+        context=retrieved_context
+    )
 
     response = client.responses.create(
         model="gpt-4.1-mini",
         input=prompt,
-        response_format=ConfidenceScore
+        response_format=ConfidenceResult
     )
 
     return response.output_parsed
