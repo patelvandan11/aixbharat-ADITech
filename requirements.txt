@@ -78,3 +78,7 @@ starlette==0.36.3
 # Deployment
 # =========================
 gunicorn==21.2.0
+
+wikipedia
+whisper
+gtts
