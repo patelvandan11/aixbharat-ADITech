@@ -1,20 +1,80 @@
-wikipedia
-# Environment Variable Management
-python-dotenv
+# =========================
+# Core Backend Framework
+# =========================
+fastapi==0.110.0
+uvicorn==0.27.1
+pydantic==2.6.1
+python-multipart==0.0.9
+requests==2.31.0
 
-# Machine Learning Utilities
-numpy
-scikit-learn
+# =========================
+# AI / LLM Integration
+# =========================
+openai==1.12.0
+langchain==0.1.14
+langchain-community==0.0.30
+langchain-openai==0.1.6
 
-# LangChain Core
-langchain
-langchain-core
+# =========================
+# Vector Database & Embeddings
+# =========================
+faiss-cpu==1.7.4
+sentence-transformers==2.5.1
+numpy==1.26.4
+scipy==1.12.0
 
-# OpenAI Integration
-langchain-openai
-openai
+# =========================
+# Document Loaders & Parsing
+# =========================
+pypdf==4.1.0
+pdfminer.six==20231228
+python-docx==1.1.0
+beautifulsoup4==4.12.3
+lxml==5.1.0
 
-# Google Gemini (PaLM) Integration
-langchain-google-genai
-google-generativeai
+# =========================
+# Translation & Multilingual Support
+# =========================
+transformers==4.38.2
+torch==2.2.1
+indic-transliteration==2.3.55
 
+# =========================
+# Speech (Voice Input / Output)
+# =========================
+SpeechRecognition==3.10.1
+pydub==0.25.1
+gTTS==2.5.1
+
+# =========================
+# WhatsApp API / Messaging
+# =========================
+twilio==9.0.1
+
+# =========================
+# Database / Storage
+# =========================
+firebase-admin==6.4.0
+
+# =========================
+# Environment & Security
+# =========================
+python-dotenv==1.0.1
+cryptography==42.0.3
+
+# =========================
+# Logging & Utilities
+# =========================
+loguru==0.7.2
+tqdm==4.66.2
+uuid==1.30
+
+# =========================
+# CORS & Middleware
+# =========================
+starlette==0.36.3
+
+# =========================
+# Deployment
+# =========================
+gunicorn==21.2.0
