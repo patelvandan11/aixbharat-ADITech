@@ -1,1 +1,46 @@
 *.env
+
+# Byte-code files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+
+# Virtual environment
+venv/
+.venv/
+env/
+.env/
+
+# IDE-specific files and directories
+.idea/  # PyCharm
+.vscode/ # VS Code (only if you want to ignore workspace settings)
+*.swp   # Vim
+
+# Operating System files
+.DS_Store # macOS
+Thumbs.db # Windows
+
+# build artifacts
+dist/
+build/
+*.whl
+
+# Documentation
+docs/_build/
+
+# Testing and debugging
+.pytest_cache/
+.coverage
+
+# specific to pypi
+.pypirc
+
+# Other files to ignore
+pip-log.txt
+pipenv.log
+coverage.xml
+htmlcov/
+.tox/

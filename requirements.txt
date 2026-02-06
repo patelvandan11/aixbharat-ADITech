@@ -1,0 +1,20 @@
+wikipedia
+# Environment Variable Management
+python-dotenv
+
+# Machine Learning Utilities
+numpy
+scikit-learn
+
+# LangChain Core
+langchain
+langchain-core
+
+# OpenAI Integration
+langchain-openai
+openai
+
+# Google Gemini (PaLM) Integration
+langchain-google-genai
+google-generativeai
+
