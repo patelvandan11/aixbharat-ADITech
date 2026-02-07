@@ -1,4 +1,5 @@
 *.env
+*.mp3
 
 # Byte-code files
 __pycache__/
