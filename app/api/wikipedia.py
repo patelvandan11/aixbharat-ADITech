@@ -10,7 +10,6 @@ wiki_api = WikipediaAPIWrapper(
 
 wiki_tool = WikipediaQueryRun(api_wrapper=wiki_api)
 
-
 def wikipedia_fallback(query: str) -> str:
     """
     Uses LangChain Wikipedia retriever to get reliable context.
